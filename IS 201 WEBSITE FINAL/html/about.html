@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About | Abraham Olenslager</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-navy: #1a365d;
+            --secondary-blue: #2c5282;
+            --light-blue: #4299e1;
+            --accent-gold: #d4af37;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        .navbar {
+            background-color: var(--primary-navy) !important;
+            padding: 1rem 0;
+        }
+        
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: white !important;
+        }
+        
+        .nav-link {
+            color: rgba(255, 255, 255, 0.85) !important;
+            font-weight: 500;
+            margin: 0 0.5rem;
+            transition: color 0.3s;
+        }
+        
+        .nav-link:hover {
+            color: var(--accent-gold) !important;
+        }
+        
+        .page-header {
+            background: linear-gradient(135deg, var(--primary-navy) 0%, var(--secondary-blue) 100%);
+            color: white;
+            padding: 80px 0 60px;
+            text-align: center;
+        }
+        
+        .page-header h1 {
+            font-size: 3rem;
+            font-weight: 700;
+        }
+        
+        .about-section {
+            padding: 80px 0;
+        }
+        
+        .about-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .about-content h2 {
+            color: var(--primary-navy);
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            border-bottom: 3px solid var(--accent-gold);
+            padding-bottom: 0.5rem;
+            display: inline-block;
+        }
+        
+        .about-content p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #333;
+            margin-bottom: 1.5rem;
+        }
+        
+        .stats-section {
+            background-color: #f8f9fa;
+            padding: 60px 0;
+        }
+        
+        .stat-box {
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .stat-box .number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--secondary-blue);
+            margin-bottom: 0.5rem;
+        }
+        
+        .stat-box .label {
+            font-size: 1.1rem;
+            color: #666;
+            font-weight: 500;
+        }
+        
+        .values-section {
+            padding: 80px 0;
+        }
+        
+        .value-card {
+            padding: 30px;
+            border-left: 4px solid var(--accent-gold);
+            background-color: white;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+            margin-bottom: 20px;
+            transition: transform 0.3s;
+        }
+        
+        .value-card:hover {
+            transform: translateX(10px);
+        }
+        
+        .value-card h4 {
+            color: var(--primary-navy);
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        
+        .value-card i {
+            font-size: 2rem;
+            color: var(--secondary-blue);
+            margin-bottom: 1rem;
+        }
+        
+        footer {
+            background-color: var(--primary-navy);
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+        }
+        
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+            margin: 0 15px;
+            transition: color 0.3s;
+        }
+        
+        .social-links a:hover {
+            color: var(--accent-gold);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">Abraham Olenslager</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="about.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="resume.html">Resume</a>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../business.html">Business Analysis</a>
+                    <li class="nav-item">
+                        <a class="nav-link" href="videolib.html">Videos</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <div class="page-header">
+        <div class="container">
+            <h1>About Me</h1>
+        </div>
+    </div>
+
+    <!-- About Section -->
+    <section class="about-section">
+        <div class="container">
+            <div class="about-content">
+                <h2>My Story</h2>
+                <p>
+                    I'm Abraham Olenslager, a Pre-Business student at Brigham Young University with a deep passion for entrepreneurship, public advocacy, and creating positive change through business. From founding BOOST Candy Co. to leading political campaign recruitment efforts, I thrive on building things from the ground up and connecting with people.
+                </p>
+                <p>
+                    My journey has taken me from the debate stage—where I earned state championships and national recognition—to the streets of Buenos Aires, Argentina, where I served a two-year mission and became fluent in Spanish. These experiences taught me the value of clear communication, cultural understanding, and the power of persuasive storytelling.
+                </p>
+                
+                <h2 class="mt-5">What Drives Me</h2>
+                <p>
+                    I believe in the intersection of business and civic engagement. Whether I'm lobbying legislators at the Utah State Capitol, training sales teams, or developing a new product, I'm motivated by the opportunity to make a tangible impact. I see entrepreneurship not just as building companies, but as solving real problems and creating value for communities.
+                </p>
+                <p>
+                    Beyond business, I'm committed to free market principles and civic advocacy. As Outreach Coordinator for Turning Point USA at BYU, I work to engage students in conversations about policy, economics, and the role of entrepreneurship in society.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="stat-box">
+                        <div class="number">3.8</div>
+                        <div class="label">GPA</div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="stat-box">
+                        <div class="number">2</div>
+                        <div class="label">Languages</div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="stat-box">
+                        <div class="number">3</div>
+                        <div class="label">Businesses Founded</div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="stat-box">
+                        <div class="number">10+</div>
+                        <div class="label">Awards & Honors</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Values Section -->
+    <section class="values-section">
+        <div class="container">
+            <div class="about-content">
+                <h2 class="text-center mb-5">Core Values</h2>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="value-card">
+                            <i class="fas fa-lightbulb"></i>
+                            <h4>Innovation & Entrepreneurship</h4>
+                            <p>I believe in creating solutions, taking calculated risks, and building ventures that solve real problems.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="value-card">
+                            <i class="fas fa-handshake"></i>
+                            <h4>Integrity & Service</h4>
+                            <p>From organizing food drives to community service, I'm committed to leading with integrity and giving back.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="value-card">
+                            <i class="fas fa-comments"></i>
+                            <h4>Communication & Persuasion</h4>
+                            <p>Whether in debate, sales, or advocacy, I value the power of effective communication to inspire action.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="value-card">
+                            <i class="fas fa-balance-scale"></i>
+                            <h4>Free Markets & Civic Engagement</h4>
+                            <p>I advocate for economic freedom, limited government, and empowering individuals through free enterprise.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="social-links mb-3">
+                <a href="mailto:abeole21@gmail.com"><i class="fas fa-envelope"></i></a>
+                <a href="tel:801-427-9712"><i class="fas fa-phone"></i></a>
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+            </div>
+            <p class="mb-0">&copy; 2024 Abraham Olenslager. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

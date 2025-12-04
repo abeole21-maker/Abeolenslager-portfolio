@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Library</title>
+    <link rel="stylesheet" href="../styles/styles.css">
+    <style>
+        .content-box {
+            background: rgba(26, 54, 93, 0.6);
+            border-radius: 15px;
+            padding: 30px;
+            margin: 30px auto;
+            max-width: 1200px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+        }
+        
+        .content-box h2 {
+            color: #d4af37;
+            margin-bottom: 20px;
+        }
+        
+        .content-box h3 {
+            color: #d4af37;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+        
+        .content-box ol, .content-box ul {
+            line-height: 1.8;
+            margin-left: 20px;
+        }
+        
+        .content-box a {
+            color: #d4af37;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        
+        .content-box a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <img src="../images/WEB Photo.jpg" alt="Photo of Abe Olenslager" height="80px" class="headerimage">
+        <div class="headertext">
+            <h1>My Speeches</h1>
+            <p>A collection of my videos and speeches.</p>
+        </div> 
+        <nav class="nav">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="resume.html">Resume</a>
+            <a href="../business.html">Business Analysis</a>
+            <a href="videolib.html">Videos</a>
+        </nav>
+    </div>
+
+    <div class="video-grid">
+        <div class="video-item" id="videos">
+            <iframe 
+                width="560" 
+                height="315" 
+                src="https://www.youtube.com/embed/EL4l2MbA2yk?si=j11skKaiFDTdA0ur" 
+                title="YouTube video player" 
+                frameborder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                referrerpolicy="strict-origin-when-cross-origin" 
+                allowfullscreen>
+            </iframe>
+        </div>
+
+        <div class="video-item">
+            <iframe 
+                width="560" 
+                height="315" 
+                src="https://www.youtube.com/embed/LTPdSig0S_c?si=MXDy8unPjVqsc2lT" 
+                title="YouTube video player" 
+                frameborder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                referrerpolicy="strict-origin-when-cross-origin" 
+                allowfullscreen>
+            </iframe>
+        </div>
+
+        <div class="video-item">
+            <iframe 
+                width="560" 
+                height="315" 
+                src="https://www.youtube.com/embed/dZOL9U1stFM?si=BPG9HG0vysF5wcCF" 
+                title="YouTube video player" 
+                frameborder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                referrerpolicy="strict-origin-when-cross-origin" 
+                allowfullscreen>
+            </iframe>
+        </div>
+
+        <div class="video-item">
+            <iframe 
+                width="560" 
+                height="315" 
+                src="https://www.youtube.com/embed/Uig3WeYCDeQ?si=ld8lxdwmQ3qJ7fLv" 
+                title="YouTube video player" 
+                frameborder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                referrerpolicy="strict-origin-when-cross-origin" 
+                allowfullscreen>
+            </iframe>
+        </div>
+    </div>
+
+    <div class="content-box list">
+        <h3>My Speeches</h3>
+        <ol>
+            <li><strong>Liberty, In Order to Live.</strong>
+                <ul>
+                    <li>Avoiding governement overeach.</li>
+                    <li>Benefits of a free market.</li>
+                    <li>The importance of democracy.</li>
+                </ul>
+            </li>
+            <li><strong>We Hold The Sky.</strong>
+                <ul>
+                    <li>The foundation of our country.</li>
+                    <li>Using our rights in defense of our rights.</li>
+                    <li>Participating in politics.</li>
+                </ul>
+            </li>
+            <li><strong>The Immigration Problem.</strong>
+                <ul>
+                    <li>Problems with illegal immigration.</li>
+                    <li>Difficulty with legal immigration.</li>
+                    <li>What we can do to change it.</li>
+                </ul>
+            </li>
+            <li><strong>Artists of the Future</strong>
+                <ul>
+                    <li>The power of words.</li>
+                    <li>The importance of the first amendment.</li>
+                    <li>How we can use our words to save the first amendment.</li>
+                </ul>
+            </li>
+        </ol>
+    </div>
+<p>
+    <a class="jump header" href="#videos">Jump to Videos </a>
+</p>
+</body>
+</html>

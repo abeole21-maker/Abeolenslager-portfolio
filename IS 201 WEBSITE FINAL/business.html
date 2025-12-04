@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Business - Abraham Olenslager</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #2c4a6e;
+            color: white;
+            min-height: 100vh;
+            font-size: 14px;
+        }
+
+        .header {
+            background-color: #1a365d;
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header h1 {
+            font-size: 1.5em;
+            color: white;
+            text-decoration: none;
+        }
+
+        .header a {
+            text-decoration: none;
+            color: white;
+        }
+
+        .nav {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.1em;
+            transition: color 0.3s;
+        }
+
+        .nav a:hover {
+            color: #d4af37;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 30px 20px;
+        }
+
+        .page-title {
+            text-align: center;
+            font-size: 2.2em;
+            margin-bottom: 15px;
+            color: white;
+        }
+
+        .page-subtitle {
+            text-align: center;
+            font-size: 1.2em;
+            color: #d4af37;
+            margin-bottom: 30px;
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        @media (max-width: 1024px) {
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .card {
+            background: rgba(26, 54, 93, 0.6);
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .card h2 {
+            color: #d4af37;
+            margin-bottom: 15px;
+            font-size: 1.4em;
+        }
+
+        .app-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .input-group {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        label {
+            font-weight: 600;
+            color: white;
+        }
+
+        textarea {
+            padding: 12px;
+            border: 2px solid rgba(212, 175, 55, 0.3);
+            border-radius: 8px;
+            font-size: 1em;
+            font-family: inherit;
+            resize: vertical;
+            min-height: 120px;
+            transition: border-color 0.3s;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+        }
+
+        textarea:focus {
+            outline: none;
+            border-color: #d4af37;
+        }
+
+        textarea::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .timer-display {
+            text-align: center;
+            font-size: 2.5em;
+            font-weight: bold;
+            color: #d4af37;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            margin: 10px 0;
+        }
+
+        .timer-display.warning {
+            color: #ff9800;
+        }
+
+        .timer-display.danger {
+            color: #f44336;
+            animation: pulse 1s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .button-group {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+        }
+
+        button {
+            background-color: #d4af37;
+            color: #1a365d;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-size: 1em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s, background-color 0.3s;
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.4);
+            background-color: #c19b2e;
+        }
+
+        button:active {
+            transform: translateY(0);
+        }
+
+        button:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        button.secondary {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: 2px solid white;
+        }
+
+        button.secondary:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        button.stop {
+            background: #f44336;
+            color: white;
+        }
+
+        button.stop:hover {
+            background: #d32f2f;
+        }
+
+        .result-box {
+            background: rgba(255, 255, 255, 0.1);
+            border-left: 4px solid #d4af37;
+            padding: 20px;
+            border-radius: 8px;
+            display: none;
+        }
+
+        .result-box.show {
+            display: block;
+            animation: fadeIn 0.5s;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .result-box h3 {
+            color: #d4af37;
+            margin-bottom: 15px;
+        }
+
+        .criteria {
+            margin: 15px 0;
+        }
+
+        .criteria-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px;
+            margin: 5px 0;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 5px;
+        }
+
+        .score {
+            font-weight: bold;
+            color: #d4af37;
+        }
+
+        .overall-score {
+            font-size: 1.5em;
+            text-align: center;
+            padding: 15px;
+            background: rgba(212, 175, 55, 0.2);
+            border-radius: 8px;
+            margin-top: 15px;
+            color: #d4af37;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 20px;
+            color: #d4af37;
+        }
+
+        .spinner {
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            border-top: 3px solid #d4af37;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 20px auto;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .tableau-container {
+            width: 100%;
+            height: 600px;
+            overflow: hidden;
+        }
+
+        .tableau-container .tableauPlaceholder {
+            width: 100% !important;
+            height: 100% !important;
+        }
+
+        .tableau-container object {
+            width: 100% !important;
+            height: 100% !important;
+        }
+
+        .info-text {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9em;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <a href="html/index.html"><h1>Abraham Olenslager</h1></a>
+        <nav class="nav">
+            <a href="html/index.html">Home</a>
+            <a href="html/about.html">About</a>
+            <a href="html/resume.html">Resume</a>
+            <a href="business.html">Business Analysis</a>
+            <a href="html/videolib.html">Videos</a>
+        </nav>
+    </div>
+
+    <div class="container">
+        <h1 class="page-title">Business Analytics & Tools</h1>
+        <p class="page-subtitle">Elevator Pitch Analysis | Data Visualization</p>
+        
+        <div class="content-grid">
+            <!-- Elevator Pitch Rater & Timer -->
+            <div class="card">
+                <h2>🎤 Elevator Pitch Rater & Timer</h2>
+                <div class="app-container">
+                    <div class="input-group">
+                        <label for="pitch">Enter Your Elevator Pitch:</label>
+                        <textarea id="pitch" placeholder="Type your elevator pitch here..."></textarea>
+                        <p class="info-text">Ideal length: 30-60 seconds when spoken</p>
+                    </div>
+
+                    <div class="timer-display" id="timer">00:00</div>
+
+                    <div class="button-group">
+                        <button id="startBtn" onclick="startTimer()">▶ Start Timer</button>
+                        <button id="stopBtn" class="stop" onclick="stopTimer()" disabled>⏹ Stop</button>
+                        <button class="secondary" onclick="resetTimer()">↻ Reset</button>
+                    </div>
+
+                    <button id="analyzeBtn" onclick="analyzePitch()">📊 Analyze Pitch</button>
+
+                    <div id="result" class="result-box"></div>
+                </div>
+            </div>
+
+            <!-- Tableau Visualization -->
+            <div class="card">
+                <h2>📊 Startup Ecosystem Analysis</h2>
+                <div class="tableau-container">
+                    <div class='tableauPlaceholder' id='viz1764885634947' style='position: relative; width: 100%; height: 100%;'>
+                        <noscript>
+                            <a href='#'>
+                                <img alt='Startups ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;GC&#47;GCBP9BBXT&#47;1_rss.png' style='border: none' />
+                            </a>
+                        </noscript>
+                        <object class='tableauViz' style='display:none;'>
+                            <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
+                            <param name='embed_code_version' value='3' />
+                            <param name='path' value='shared&#47;GCBP9BBXT' />
+                            <param name='toolbar' value='yes' />
+                            <param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;GC&#47;GCBP9BBXT&#47;1.png' />
+                            <param name='animate_transition' value='yes' />
+                            <param name='display_static_image' value='yes' />
+                            <param name='display_spinner' value='yes' />
+                            <param name='display_overlay' value='yes' />
+                            <param name='display_count' value='yes' />
+                            <param name='language' value='en-US' />
+                        </object>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type='text/javascript'>
+        // Tableau embed script
+        var divElement = document.getElementById('viz1764885634947');
+        var vizElement = divElement.getElementsByTagName('object')[0];
+        
+        // Make it responsive and fit the container
+        vizElement.style.width = '100%';
+        vizElement.style.height = '600px';
+        
+        var scriptElement = document.createElement('script');
+        scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+        vizElement.parentNode.insertBefore(scriptElement, vizElement);
+
+        // Timer functionality
+        let seconds = 0;
+        let timerInterval = null;
+        let isRunning = false;
+
+        function formatTime(secs) {
+            const mins = Math.floor(secs / 60);
+            const remainingSecs = secs % 60;
+            return `${String(mins).padStart(2, '0')}:${String(remainingSecs).padStart(2, '0')}`;
+        }
+
+        function updateTimerDisplay() {
+            const display = document.getElementById('timer');
+            display.textContent = formatTime(seconds);
+            
+            display.classList.remove('warning', 'danger');
+            if (seconds > 60) {
+                display.classList.add('danger');
+            } else if (seconds > 45) {
+                display.classList.add('warning');
+            }
+        }
+
+        function startTimer() {
+            if (!isRunning) {
+                isRunning = true;
+                document.getElementById('startBtn').disabled = true;
+                document.getElementById('stopBtn').disabled = false;
+                
+                timerInterval = setInterval(() => {
+                    seconds++;
+                    updateTimerDisplay();
+                }, 1000);
+            }
+        }
+
+        function stopTimer() {
+            if (isRunning) {
+                isRunning = false;
+                clearInterval(timerInterval);
+                document.getElementById('startBtn').disabled = false;
+                document.getElementById('stopBtn').disabled = true;
+            }
+        }
+
+        function resetTimer() {
+            stopTimer();
+            seconds = 0;
+            updateTimerDisplay();
+            document.getElementById('result').classList.remove('show');
+        }
+
+        function analyzePitch() {
+            const pitch = document.getElementById('pitch').value.trim();
+            const resultDiv = document.getElementById('result');
+            
+            if (!pitch) {
+                resultDiv.innerHTML = '<p style="color: #f44336;">Please enter your elevator pitch first!</p>';
+                resultDiv.classList.add('show');
+                return;
+            }
+
+            // Show loading
+            resultDiv.innerHTML = '<div class="loading"><p>Analyzing your pitch...</p></div>';
+            resultDiv.classList.add('show');
+
+            // Analyze pitch locally
+            setTimeout(() => {
+                const words = pitch.split(/\s+/).length;
+                const sentences = pitch.split(/[.!?]+/).filter(s => s.trim().length > 0).length;
+                const hasQuestion = pitch.includes('?');
+                const hasNumbers = /\d/.test(pitch);
+                
+                // Simple scoring algorithm
+                const clarity = Math.min(10, Math.max(5, 10 - Math.abs(words - 75) / 15));
+                const value = pitch.toLowerCase().includes('help') || pitch.toLowerCase().includes('solve') || 
+                             pitch.toLowerCase().includes('improve') || pitch.toLowerCase().includes('benefit') ? 8 : 6;
+                const hook = hasQuestion || words < 100 ? 8 : 6;
+                const brevity = words <= 100 ? 9 : Math.max(5, 10 - (words - 100) / 10);
+                const cta = pitch.toLowerCase().includes('contact') || pitch.toLowerCase().includes('reach') || 
+                           pitch.toLowerCase().includes('call') || pitch.toLowerCase().includes('email') ||
+                           pitch.toLowerCase().includes('visit') || pitch.toLowerCase().includes('learn more') ? 9 : 6;
+                
+                const overall = ((clarity + value + hook + brevity + cta) / 5).toFixed(1);
+                
+                let feedback = '';
+                if (words < 50) {
+                    feedback = 'Your pitch is quite brief. Consider adding more details about your value proposition and what makes your solution unique.';
+                } else if (words > 120) {
+                    feedback = 'Your pitch is quite long. Try to be more concise and focus on the most important points that will grab attention quickly.';
+                } else {
+                    feedback = 'Good length! Make sure you clearly articulate the problem you solve, your unique solution, and include a clear call to action.';
+                }
+                
+                const result = {
+                    clarity: Math.round(clarity),
+                    value: Math.round(value),
+                    hook: Math.round(hook),
+                    brevity: Math.round(brevity),
+                    cta: Math.round(cta),
+                    overall: parseFloat(overall),
+                    feedback: feedback
+                };
+
+                displayResults(result);
+            }, 500);
+        }
+
+        function displayResults(result) {
+            const resultDiv = document.getElementById('result');
+            const timeUsed = seconds;
+            const timingFeedback = timeUsed < 30 ? "Too short - consider adding more detail" :
+                                   timeUsed <= 60 ? "Perfect timing!" :
+                                   "Too long - try to be more concise";
+            
+            resultDiv.innerHTML = `
+                <h3>Pitch Analysis Results</h3>
+                
+                <div class="criteria">
+                    <div class="criteria-item">
+                        <span>⏱️ Time Used:</span>
+                        <span class="score">${formatTime(timeUsed)} - ${timingFeedback}</span>
+                    </div>
+                    <div class="criteria-item">
+                        <span>✨ Clarity:</span>
+                        <span class="score">${result.clarity}/10</span>
+                    </div>
+                    <div class="criteria-item">
+                        <span>💎 Value Proposition:</span>
+                        <span class="score">${result.value}/10</span>
+                    </div>
+                    <div class="criteria-item">
+                        <span>🎣 Hook:</span>
+                        <span class="score">${result.hook}/10</span>
+                    </div>
+                    <div class="criteria-item">
+                        <span>⚡ Brevity:</span>
+                        <span class="score">${result.brevity}/10</span>
+                    </div>
+                    <div class="criteria-item">
+                        <span>📞 Call to Action:</span>
+                        <span class="score">${result.cta}/10</span>
+                    </div>
+                </div>
+
+                <div class="overall-score">
+                    Overall Score: ${result.overall}/10
+                </div>
+
+                <div style="margin-top: 15px; padding: 15px; background: rgba(255, 255, 255, 0.05); border-radius: 5px;">
+                    <strong>💡 Feedback:</strong>
+                    <p style="margin-top: 10px;">${result.feedback}</p>
+                </div>
+            `;
+        }
+    </script>
+</body>
+</html>
