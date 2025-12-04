@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume | Abraham Olenslager</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-navy: #1a365d;
+            --secondary-blue: #2c5282;
+            --light-blue: #4299e1;
+            --accent-gold: #d4af37;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        .navbar {
+            background-color: var(--primary-navy) !important;
+            padding: 1rem 0;
+        }
+        
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: white !important;
+        }
+        
+        .nav-link {
+            color: rgba(255, 255, 255, 0.85) !important;
+            font-weight: 500;
+            margin: 0 0.5rem;
+            transition: color 0.3s;
+        }
+        
+        .nav-link:hover {
+            color: var(--accent-gold) !important;
+        }
+        
+        .page-header {
+            background: linear-gradient(135deg, var(--primary-navy) 0%, var(--secondary-blue) 100%);
+            color: white;
+            padding: 80px 0 60px;
+            text-align: center;
+        }
+        
+        .page-header h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        
+        .page-header .contact-info {
+            font-size: 1.1rem;
+            margin-top: 1rem;
+        }
+        
+        .page-header .contact-info a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+        }
+        
+        .page-header .contact-info a:hover {
+            color: var(--accent-gold);
+        }
+        
+        .resume-section {
+            padding: 60px 0;
+        }
+        
+        .resume-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .section-title {
+            color: var(--primary-navy);
+            font-weight: 700;
+            font-size: 1.8rem;
+            margin-bottom: 2rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 3px solid var(--accent-gold);
+        }
+        
+        .resume-item {
+            margin-bottom: 2.5rem;
+        }
+        
+        .resume-item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 0.5rem;
+        }
+        
+        .resume-item-title {
+            font-weight: 700;
+            font-size: 1.3rem;
+            color: var(--primary-navy);
+        }
+        
+        .resume-item-date {
+            color: #666;
+            font-style: italic;
+            white-space: nowrap;
+        }
+        
+        .resume-item-subtitle {
+            color: var(--secondary-blue);
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-bottom: 0.8rem;
+        }
+        
+        .resume-item-location {
+            color: #666;
+            margin-bottom: 0.8rem;
+        }
+        
+        .resume-item ul {
+            margin-left: 20px;
+            color: #333;
+        }
+        
+        .resume-item li {
+            margin-bottom: 0.5rem;
+            line-height: 1.6;
+        }
+        
+        .education-item {
+            margin-bottom: 1.5rem;
+        }
+        
+        .gpa {
+            color: var(--secondary-blue);
+            font-weight: 600;
+        }
+        
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .skill-category {
+            background: white;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+            border-left: 4px solid var(--accent-gold);
+        }
+        
+        .skill-category h4 {
+            color: var(--primary-navy);
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        
+        .skill-category ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .skill-category li {
+            padding: 0.3rem 0;
+            color: #333;
+        }
+        
+        .skill-category li:before {
+            content: "▹ ";
+            color: var(--secondary-blue);
+            font-weight: bold;
+        }
+        
+        .achievements-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        
+        .achievement-item {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+            border-left: 4px solid var(--secondary-blue);
+        }
+        
+        .achievement-item strong {
+            color: var(--primary-navy);
+        }
+        
+        footer {
+            background-color: var(--primary-navy);
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+        }
+        
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+            margin: 0 15px;
+            transition: color 0.3s;
+        }
+        
+        .social-links a:hover {
+            color: var(--accent-gold);
+        }
+        
+        @media (max-width: 768px) {
+            .resume-item-header {
+                flex-direction: column;
+            }
+            
+            .resume-item-date {
+                margin-top: 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">Abraham Olenslager</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="resume.html">Resume</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <div class="page-header">
+        <div class="container">
+            <h1>Abraham Olenslager</h1>
+            <div class="contact-info">
+                <a href="tel:801-427-9712"><i class="fas fa-phone"></i> 801-427-9712</a>
+                <a href="mailto:abeole21@gmail.com"><i class="fas fa-envelope"></i> abeole21@gmail.com</a>
+                <span><i class="fas fa-map-marker-alt"></i> Orem, Utah</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Resume Content -->
+    <section class="resume-section">
+        <div class="container">
+            <div class="resume-container">
+                
+                <!-- Education Section -->
+                <div class="mb-5">
+                    <h2 class="section-title">Education</h2>
+                    <div class="education-item">
+                        <div class="resume-item-header">
+                            <div>
+                                <div class="resume-item-title">Brigham Young University</div>
+                                <div class="resume-item-subtitle">Pre-Business Major</div>
+                            </div>
+                            <div class="resume-item-date">Expected Graduation: 2027</div>
+                        </div>
+                        <div class="resume-item-location">Provo, UT</div>
+                        <div class="gpa">GPA: 3.8</div>
+                    </div>
+                </div>
+
+                <!-- Professional Experience Section -->
+                <div class="mb-5">
+                    <h2 class="section-title">Professional Experience</h2>
+                    
+                    <div class="resume-item">
+                        <div class="resume-item-header">
+                            <div>
+                                <div class="resume-item-title">Rocky Mountain Power</div>
+                                <div class="resume-item-subtitle">Door-to-Door Sales Representative & Trainer</div>
+                            </div>
+                            <div class="resume-item-date">May 2025 - Present</div>
+                        </div>
+                        <div class="resume-item-location">Utah</div>
+                        <ul>
+                            <li>Train new representatives on effective door-to-door sales techniques</li>
+                            <li>Engage with homeowners to promote energy solutions</li>
+                        </ul>
+                    </div>
+
+                    <div class="resume-item">
+                        <div class="resume-item-header">
+                            <div>
+                                <div class="resume-item-title">Gather Campaign Management</div>
+                                <div class="resume-item-subtitle">Recruitment Manager</div>
+                            </div>
+                            <div class="resume-item-date">Winter 2024 - Present</div>
+                        </div>
+                        <div class="resume-item-location">Utah County, UT</div>
+                        <ul>
+                            <li>Manage recruitment for political campaigns across Utah County</li>
+                            <li>Build and coordinate field teams for campaign operations</li>
+                            <li>Promoted from Field Representative after a successful canvassing performance</li>
+                        </ul>
+                    </div>
+
+                    <div class="resume-item">
+                        <div class="resume-item-header">
+                            <div>
+                                <div class="resume-item-title">BOOST Candy Co.</div>
+                                <div class="resume-item-subtitle">Founder & Owner</div>
+                            </div>
+                            <div class="resume-item-date">2025 - Present</div>
+                        </div>
+                        <div class="resume-item-location">Orem, UT</div>
+                        <ul>
+                            <li>Founded a candy-based supplement company, managing all operations from product development to sales</li>
+                        </ul>
+                    </div>
+
+                    <div class="resume-item">
+                        <div class="resume-item-header">
+                            <div>
+                                <div class="resume-item-title">Self-Employed</div>
+                                <div class="resume-item-subtitle">Owner, Door-to-Door Painting Company</div>
+                            </div>
+                            <div class="resume-item-date">Summer 2022</div>
+                        </div>
+                        <div class="resume-item-location">Utah</div>
+                        <ul>
+                            <li>Operated an independent painting business</li>
+                            <li>Acquired clients and managed projects</li>
+                        </ul>
+                    </div>
+
+                    <div class="resume-item">
+                        <div class="resume-item-header">
+                            <div>
+                                <div class="resume-item-title">NOVA Solar</div>
+                                <div class="resume-item-subtitle">Door-to-Door Sales Representative</div>
+                            </div>
+                            <div class="resume-item-date">Summer 2022</div>
+                        </div>
+                        <div class="resume-item-location">Utah</div>
+                        <ul>
+                            <li>Promoted residential solar energy solutions</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- International Experience Section -->
+                <div class="mb-5">
+                    <h2 class="section-title">International Experience</h2>
+                    
+                    <div class="resume-item">
+                        <div class="resume-item-header">
+                            <div>
+                                <div class="resume-item-title">The Church of Jesus Christ of Latter-day Saints</div>
+                                <div class="resume-item-subtitle">Full-Time Missionary</div>
+                            </div>
+                            <div class="resume-item-date">2022 - 2024</div>
+                        </div>
+                        <div class="resume-item-location">Buenos Aires, Argentina</div>
+                        <ul>
+                            <li>Served in various leadership positions managing teams of missionaries</li>
+                            <li>Developed fluency in Spanish through daily immersion</li>
+                            <li>Coordinated community service initiatives</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Leadership & Activities Section -->
+                <div class="mb-5">
+                    <h2 class="section-title">Leadership & Activities</h2>
+                    
+                    <div class="resume-item">
+                        <div class="resume-item-header">
+                            <div>
+                                <div class="resume-item-title">Turning Point USA, BYU Chapter</div>
+                                <div class="resume-item-subtitle">Outreach Coordinator</div>
+                            </div>
+                            <div class="resume-item-date">2025 - Present</div>
+                        </div>
+                        <div class="resume-item-location">Provo, UT</div>
+                    </div>
+
+                    <div class="resume-item">
+                        <div class="resume-item-header">
+                            <div>
+                                <div class="resume-item-title">WIDL Civic Advocacy Internship</div>
+                            </div>
+                            <div class="resume-item-date">Spring 2022</div>
+                        </div>
+                        <div class="resume-item-location">Utah State Capitol</div>
+                        <ul>
+                            <li>Lobbied state legislators on policy initiatives</li>
+                            <li>Organized rally on Capitol steps</li>
+                            <li>Delivered testimony during legislative session</li>
+                        </ul>
+                    </div>
+
+                    <div class="resume-item">
+                        <div class="resume-item-header">
+                            <div>
+                                <div class="resume-item-title">Integritis Mock Trial Team</div>
+                            </div>
+                            <div class="resume-item-date">2021 - 2022</div>
+                        </div>
+                        <ul>
+                            <li>State Champions, 2022 | Competed in National Championship</li>
+                        </ul>
+                    </div>
+
+                    <div class="resume-item">
+                        <div class="resume-item-header">
+                            <div>
+                                <div class="resume-item-title">WIDL Speech & Debate</div>
+                            </div>
+                            <div class="resume-item-date">2019 - 2022</div>
+                        </div>
+                        <ul>
+                            <li>First Place Overall, All Events (2022)</li>
+                        </ul>
+                    </div>
+
+                    <div class="resume-item">
+                        <div class="resume-item-header">
+                            <div>
+                                <div class="resume-item-title">Model United Nations</div>
+                            </div>
+                            <div class="resume-item-date">2019 - 2022</div>
+                        </div>
+                        <ul>
+                            <li>Received top delegate rankings at multiple conferences</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Achievements Section -->
+                <div class="mb-5">
+                    <h2 class="section-title">Achievements</h2>
+                    <div class="achievements-grid">
+                        <div class="achievement-item">
+                            <strong>2nd Place, Spanish Division</strong> - BYU Marriott School Business Language Case Competition (2025)
+                        </div>
+                        <div class="achievement-item">
+                            <strong>Finalist</strong> - Stossel in the Classroom Video Essay Contest (2021-2022)
+                        </div>
+                        <div class="achievement-item">
+                            <strong>1st Place</strong> - American Freedom Festival Speech Contest (2021) | Spoke at LaVell Edwards Stadium (July 4, 2021)
+                        </div>
+                        <div class="achievement-item">
+                            <strong>2nd Place</strong> - American Freedom Festival Speech Contest (2022) | Spoke at foundation donors breakfast
+                        </div>
+                        <div class="achievement-item">
+                            <strong>1st Place Team</strong> - Academic World Quest State Tournament (2020)
+                        </div>
+                        <div class="achievement-item">
+                            <strong>2nd Place Team</strong> - Academic World Quest State Tournament (2021)
+                        </div>
+                        <div class="achievement-item">
+                            <strong>Community Service</strong> - Organized food drive collecting 39,540 pounds of food and $12,943 in donations (2021)
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Skills Section -->
+                <div class="mb-5">
+                    <h2 class="section-title">Skills</h2>
+                    <div class="skills-grid">
+                        <div class="skill-category">
+                            <h4><i class="fas fa-language"></i> Languages</h4>
+                            <ul>
+                                <li>English (Native)</li>
+                                <li>Spanish (Fluent)</li>
+                            </ul>
+                        </div>
+                        <div class="skill-category">
+                            <h4><i class="fas fa-handshake"></i> Sales</h4>
+                            <ul>
+                                <li>Door-to-door sales</li>
+                                <li>Client acquisition</li>
+                                <li>Training & development</li>
+                            </ul>
+                        </div>
+                        <div class="skill-category">
+                            <h4><i class="fas fa-users"></i> Leadership</h4>
+                            <ul>
+                                <li>Team management</li>
+                                <li>Public speaking</li>
+                                <li>Event organization</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="social-links mb-3">
+                <a href="mailto:abeole21@gmail.com"><i class="fas fa-envelope"></i></a>
+                <a href="tel:801-427-9712"><i class="fas fa-phone"></i></a>
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+            </div>
+            <p class="mb-0">&copy; 2024 Abraham Olenslager. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
